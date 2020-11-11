@@ -1,3 +1,6 @@
+# the article reference
+# https://towardsdatascience.com/tree-based-methods-regression-trees-4ee5d8db9fe9
+
 
 install.packages("tree")
 library(tree)
@@ -34,3 +37,14 @@ subTreeE <- pollute %>% filter(Industry<748) %>% filter(Population>190)%>% filte
   filter(Temp<59.35)%>% filter(Wind<9.65)
 # Ctrl + shift + M
 meanE <- mean(subTreeE$Pollution)
+
+names(pollute)
+model <- tree(Pollution ~ . ,data = pollute)
+print(model)
+
+
+plot(prune.tree(model))
+sd(pollute$Pollution)
+
+
+
