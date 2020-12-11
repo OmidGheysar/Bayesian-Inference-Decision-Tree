@@ -28,11 +28,7 @@ ggplot(df) +
   geom_line(aes(x=X_axis, y=True_values,color = "True value"),linetype = "dashed") +
   theme_bw()
 
-  ggplot(df) + 
-    geom_point(aes(x=X_axis, y=Prediction,color = "BART")) +
-    geom_point(aes(x=X_axis, y=True_values,color = "True value"),linetype = "dashed") +
+ggplot(df) + 
+  geom_point(aes(x=X_axis, y=Prediction,color = "BART")) +
+  geom_point(aes(x=X_axis, y=True_values,color = "True value"),linetype = "dashed") +
   theme_bw()
-
-
-
-
