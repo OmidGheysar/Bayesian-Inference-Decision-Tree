@@ -13,11 +13,18 @@ y = 10 * sin(pi* X[ ,1] * X[,2]) +20 * (X[,3] -.5)^2 + 10 * X[ ,4] + 5 * X[,5] +
 bart_machine = bartMachine(X, y)
 summary(bart_machine)
 
-Predictions <- bart_machine
 # here is the prediction of BartMachine
 bart_machine$y_hat_train
+RSS_BART <- sum(bart_machine$residuals^2)
+# RSS_BART = 90.40044
 
+# lets try this model with linear regression
 lmFit = lm(y~.,data.frame(X,y))##build BART regression model
+RSS_Linear <- sum(lmFit$residuals^2)
+# RSS_Linear = 1448.839
+
+
+
 
 library("ggplot2")
 eq = function(x){x*x}
